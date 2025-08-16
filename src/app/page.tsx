@@ -15,7 +15,7 @@ export default async function HomePage() {
           plus behind‑the‑scenes project write‑ups.
         </p>
       </header>
-      <NewsletterCTA title="Get weekly notes" subtitle="Tactics, experiments, and project updates — no fluff." />
+      <NewsletterCTA />
       <PostList initial={initial} section="essays" />
     </div>
   )
