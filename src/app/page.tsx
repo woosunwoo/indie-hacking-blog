@@ -1,11 +1,11 @@
 import PostList from '@/components/PostList'
 import NewsletterCTA from '@/components/NewsletterCTA'
-import { getAllPosts } from '@/lib/content'
+import { getAllEssays } from '@/lib/content'
 
 export const revalidate = 60
 
 export default async function HomePage() {
-  const initial = getAllPosts({ offset: 0, limit: 10 })
+  const initial = getAllEssays({ offset: 0, limit: 10 })
   return (
     <div style={{ maxWidth: 960, margin: '24px auto', padding: '0 16px', display: 'grid', gap: 24 }}>
       <header style={{ textAlign: 'center', margin: '32px 0 8px' }}>
@@ -16,7 +16,7 @@ export default async function HomePage() {
         </p>
       </header>
       <NewsletterCTA title="Get weekly notes" subtitle="Tactics, experiments, and project updates — no fluff." />
-      <PostList initial={initial} section="all" />
+      <PostList initial={initial} section="essays" />
     </div>
   )
 }
