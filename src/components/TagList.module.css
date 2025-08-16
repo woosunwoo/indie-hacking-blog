@@ -1,0 +1,2 @@
+.list{display:flex;gap:8px;list-style:none;padding:0;margin:8px 0}
+.list a{color:color-mix(in oklab,var(--foreground),transparent 15%)}

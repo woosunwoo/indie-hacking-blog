@@ -1,0 +1,7 @@
+.prose{max-width:72ch;line-height:1.7;font-size:18px}
+.prose h1{font-size:34px;margin:0 0 12px}
+.prose h2{font-size:26px;margin:28px 0 8px}
+.prose p{margin:16px 0;color:color-mix(in oklab,var(--foreground),transparent 10%)}
+.prose pre{padding:12px;border:1px solid color-mix(in oklab,var(--foreground),transparent 85%);border-radius:10px;overflow:auto}
+.prose code{background:color-mix(in oklab,var(--foreground),transparent 92%);padding:2px 6px;border-radius:6px}
+.prose img{max-width:100%;height:auto;border-radius:10px}

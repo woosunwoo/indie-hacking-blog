@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Ship It: First Indie Project",
+    "slug": "first-project",
+    "date": "2025-08-10T00:00:00.000Z",
+    "updated": "2025-08-15T00:00:00.000Z",
+    "summary": "How I built and shipped my first indie project in a weekend.",
+    "tags": [
+      "indie",
+      "build-in-public"
+    ],
+    "headerImage": "/images/placeholder.svg",
+    "published": true,
+    "content": "Welcome to my first project write-up.\n\n```ts\nexport function hello(name: string){\n  return `hello ${name}`\n}\n```\n\n- scoped features\n- pricing thoughts\n\n> Shipping beats perfection.",
+    "url": "/projects/first-project"
+  }
+]

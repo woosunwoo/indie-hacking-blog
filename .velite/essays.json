@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Notes on Focus",
+    "slug": "notes-on-focus",
+    "date": "2025-08-12T00:00:00.000Z",
+    "summary": "Staying focused while building indie products.",
+    "tags": [
+      "focus",
+      "productivity"
+    ],
+    "headerImage": "/images/placeholder.svg",
+    "published": true,
+    "content": "This is an essay about focus.\n\n```js\nconst tips = [\"single-task\", \"turn off notifications\"]\n```\n\nRemember to rest.",
+    "url": "/essays/notes-on-focus"
+  }
+]
