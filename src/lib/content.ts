@@ -20,58 +20,74 @@ export type Post = {
   canonicalUrl?: string
 }
 
-function normalize(p: any, section: 'projects' | 'essays') {
+// Shape of Velite-generated items we actually consume
+type RawPost = {
+  title: string
+  slug?: string
+  date: string | Date
+  updated?: string | Date
+  summary: string
+  tags?: string[]
+  headerImage?: string
+  url: string
+  published?: boolean
+  canonicalUrl?: string
+  content?: string
+  _meta?: { filename?: string }
+}
+
+function normalize(p: RawPost, section: 'projects' | 'essays'): Post {
   return {
     section,
-    title: p.title as string,
-    slug: p.slug as string,
+    title: p.title,
+    slug: (p.slug ?? p._meta?.filename) as string,
     date: new Date(p.date).toISOString(),
     updated: p.updated ? new Date(p.updated).toISOString() : undefined,
-    summary: p.summary as string,
-    tags: (p.tags || []) as string[],
-    headerImage: p.headerImage as string | undefined,
-    url: p.url as string,
+    summary: p.summary,
+    tags: p.tags || [],
+    headerImage: p.headerImage,
+    url: p.url,
     published: p.published !== false,
-    canonicalUrl: p.canonicalUrl as string | undefined,
+    canonicalUrl: p.canonicalUrl,
   }
 }
 
 export function getWithContent(section: 'projects' | 'essays', slug: string) {
-  const src = section === 'projects' ? (allProjects as any[]) : (allEssays as any[])
+  const src: RawPost[] = section === 'projects' ? (allProjects as unknown as RawPost[]) : (allEssays as unknown as RawPost[])
   const found = src.find(p => (p.slug || p._meta?.filename)?.toString() === slug)
   if (!found) return null
-  return { ...normalize(found, section), content: (found as any).content as string }
+  return { ...normalize(found, section), content: found.content as string }
 }
 
 export const getAllProjects = cache(({ offset = 0, limit = 10 }: { offset?: number; limit?: number } = {}) => {
-  const items = (allProjects as any[]).filter(p => p.published !== false).map(p => normalize(p, 'projects'))
+  const items = (allProjects as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'projects'))
   const sorted = items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
   return sorted.slice(offset, offset + limit)
 })
 
 export const getAllEssays = cache(({ offset = 0, limit = 10 }: { offset?: number; limit?: number } = {}) => {
-  const items = (allEssays as any[]).filter(p => p.published !== false).map(p => normalize(p, 'essays'))
+  const items = (allEssays as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'essays'))
   const sorted = items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
   return sorted.slice(offset, offset + limit)
 })
 
 export const getAllPosts = cache(({ offset = 0, limit = 10 }: { offset?: number; limit?: number } = {}) => {
   const items = [
-    ...(allProjects as any[]).filter(p => p.published !== false).map(p => normalize(p, 'projects')),
-    ...(allEssays as any[]).filter(p => p.published !== false).map(p => normalize(p, 'essays')),
+    ...(allProjects as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'projects')),
+    ...(allEssays as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'essays')),
   ]
   const sorted = items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
   return sorted.slice(offset, offset + limit)
 })
 
 export const getBySlug = cache((section: 'projects' | 'essays', slug: string) => {
-  const src = section === 'projects' ? (allProjects as any[]) : (allEssays as any[])
+  const src: RawPost[] = section === 'projects' ? (allProjects as unknown as RawPost[]) : (allEssays as unknown as RawPost[])
   const found = src.find(p => (p.slug || p._meta?.filename)?.toString() === slug)
   return found ? normalize(found, section) : null
 })
 
 export const getPrevNext = cache((section: 'projects' | 'essays', slug: string) => {
-  const src = section === 'projects' ? (allProjects as any[]) : (allEssays as any[])
+  const src: RawPost[] = section === 'projects' ? (allProjects as unknown as RawPost[]) : (allEssays as unknown as RawPost[])
   const items = src.filter(p => p.published !== false).map(p => normalize(p, section))
   const sorted = items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
   const idx = sorted.findIndex(p => p.slug === slug)
@@ -80,8 +96,8 @@ export const getPrevNext = cache((section: 'projects' | 'essays', slug: string) 
 
 export function filterByTag(tag: string, { offset = 0, limit = 10 }: { offset?: number; limit?: number } = {}) {
   const items = [
-    ...(allProjects as any[]).filter(p => p.published !== false).map(p => normalize(p, 'projects')),
-    ...(allEssays as any[]).filter(p => p.published !== false).map(p => normalize(p, 'essays')),
+    ...(allProjects as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'projects')),
+    ...(allEssays as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'essays')),
   ].filter(p => p.tags.includes(tag))
   const sorted = items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
   return sorted.slice(offset, offset + limit)
@@ -89,20 +105,22 @@ export function filterByTag(tag: string, { offset = 0, limit = 10 }: { offset?: 
 
 export function getAllTags() {
   const set = new Set<string>()
-  ;[(allProjects as any[]), (allEssays as any[])].forEach(arr => arr.forEach((p: any) => (p.tags || []).forEach((t: string) => set.add(t))))
+  ;[(allProjects as unknown as RawPost[]), (allEssays as unknown as RawPost[])].forEach(arr =>
+    arr.forEach((p: RawPost) => (p.tags || []).forEach((t: string) => set.add(t)))
+  )
   return [...set].sort()
 }
 
 export function getAllPostsFull() {
   const items = [
-    ...(allProjects as any[]).filter(p => p.published !== false).map(p => normalize(p, 'projects')),
-    ...(allEssays as any[]).filter(p => p.published !== false).map(p => normalize(p, 'essays')),
+    ...(allProjects as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'projects')),
+    ...(allEssays as unknown as RawPost[]).filter(p => p.published !== false).map(p => normalize(p, 'essays')),
   ]
   return items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
 }
 
 export function getAllBySection(section: 'projects' | 'essays') {
-  const src = section === 'projects' ? (allProjects as any[]) : (allEssays as any[])
+  const src: RawPost[] = section === 'projects' ? (allProjects as unknown as RawPost[]) : (allEssays as unknown as RawPost[])
   const items = src.filter(p => p.published !== false).map(p => normalize(p, section))
   return items.sort((a, b) => +new Date(b.date) - +new Date(a.date))
 }

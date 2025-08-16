@@ -21,7 +21,7 @@ export default async function EssayDetail({ params }: { params: Promise<{ slug: 
   const { slug } = await params
   const post = getWithContent('essays', slug)
   if (!post) return notFound()
-  const mdx = await compileMDX<{ }>(
+  const mdx = await compileMDX<unknown>(
     {
       source: post.content,
       options: { mdxOptions: { rehypePlugins: [[rehypePrettyCode, { theme: 'github-dark' }]] } },

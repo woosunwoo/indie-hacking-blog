@@ -24,7 +24,7 @@ export default function PostList({ initial, section }: { initial: Post[]; sectio
           setItems(prev => [...prev, ...data.posts])
           setCursor(data.nextCursor)
           if (!data.nextCursor || data.posts.length === 0) setDone(true)
-        } catch (e) {
+        } catch {
           // stop trying on error
           setDone(true)
         } finally {

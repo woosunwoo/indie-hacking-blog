@@ -24,14 +24,19 @@ export default defineConfig({
           headerImage: s.string().optional(),
           published: s.boolean().default(true),
           canonicalUrl: s.string().url().optional(),
-          content: s.custom<string>().transform((_, { meta }) => meta.content),
+          content: s.custom<string>().transform((_, { meta }) => String((meta as unknown as { content?: unknown }).content ?? '')),
         })
-        .transform((data, { meta }) => ({
-          ...data,
-          // derive slug from filename if not provided
-          slug: data.slug ?? meta.filename.replace(/\.mdx?$/, ''),
-          url: `/projects/${data.slug ?? meta.filename.replace(/\.mdx?$/, '')}`,
-        })),
+        .transform((data, { meta }) => {
+          const filename = typeof (meta as unknown as { filename?: unknown }).filename === 'string'
+            ? (meta as unknown as { filename: string }).filename
+            : String((meta as unknown as { filename?: unknown }).filename ?? '')
+          return {
+            ...data,
+            // derive slug from filename if not provided
+            slug: data.slug ?? filename.replace(/\.mdx?$/, ''),
+            url: `/projects/${data.slug ?? filename.replace(/\.mdx?$/, '')}`,
+          }
+        }),
     },
     essays: {
       name: 'Essay',
@@ -48,13 +53,18 @@ export default defineConfig({
           headerImage: s.string().optional(),
           published: s.boolean().default(true),
           canonicalUrl: s.string().url().optional(),
-          content: s.custom<string>().transform((_, { meta }) => meta.content),
+          content: s.custom<string>().transform((_, { meta }) => String((meta as unknown as { content?: unknown }).content ?? '')),
         })
-        .transform((data, { meta }) => ({
-          ...data,
-          slug: data.slug ?? meta.filename.replace(/\.mdx?$/, ''),
-          url: `/essays/${data.slug ?? meta.filename.replace(/\.mdx?$/, '')}`,
-        })),
+        .transform((data, { meta }) => {
+          const filename = typeof (meta as unknown as { filename?: unknown }).filename === 'string'
+            ? (meta as unknown as { filename: string }).filename
+            : String((meta as unknown as { filename?: unknown }).filename ?? '')
+          return {
+            ...data,
+            slug: data.slug ?? filename.replace(/\.mdx?$/, ''),
+            url: `/essays/${data.slug ?? filename.replace(/\.mdx?$/, '')}`,
+          }
+        }),
     },
   },
 })
