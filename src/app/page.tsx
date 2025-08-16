@@ -15,8 +15,8 @@ export default async function HomePage() {
           plus behind‑the‑scenes project write‑ups.
         </p>
       </header>
-      <NewsletterCTA />
       <PostList initial={initial} section="essays" />
+      <NewsletterCTA />
     </div>
   )
 }
