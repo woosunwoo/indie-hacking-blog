@@ -1,16 +1,17 @@
 [
   {
-    "title": "Notes on Focus",
-    "slug": "notes-on-focus",
-    "date": "2025-08-12T00:00:00.000Z",
-    "summary": "Staying focused while building indie products.",
+    "title": "💻🔔 The $5 Chrome Extension That Helped Me Catch Upwork Jobs Faster",
+    "slug": "catch-upwork-jobs-faster",
+    "date": "2025-08-16T00:00:00.000Z",
+    "summary": "Scratching my own itch then scratching others' itches",
     "tags": [
-      "focus",
+      "indie-hacking",
+      "freelancing",
       "productivity"
     ],
-    "headerImage": "/images/placeholder.svg",
+    "headerImage": "/images/upworkjobalerts.jpg",
     "published": true,
-    "content": "This is an essay about focus.\n\n```js\nconst tips = [\"single-task\", \"turn off notifications\"]\n```\n\nRemember to rest.",
-    "url": "/essays/notes-on-focus"
+    "content": "## ⚡ The problem\n\nOn Upwork, speed matters.  \n\nThe first few proposals usually get the client’s attention.  \n\nI was always late. 🕐  \n\n---\n\n## 😫 The frustration\n\nBy the time I saw a job, ten other freelancers had already applied.  \n\nI felt like I was always one step behind. 🐢  \n\n---\n\n## 🛠️ The hack\n\nSo I built my own solution.  \n\nA Chrome extension that pings me with a notification every few minutes when new jobs appear.  \n\nSimple. Effective. Cheating! 😅  \n\n---\n\n## 🧪 The experiment\n\nThen I asked myself: *if it helps me, could it help others?*  \n\nSo I listed it on Gumroad.  \n\n**$5. Lifetime deal. 💵**  \n\n👉 [Get the extension on Gumroad →](https://sunwooy.gumroad.com/l/upworkalerts)  \n\nNo big plan. Just a test. 🎯  \n\n---\n\n## 📊 The results (so far)\n\nIt’s still early.  \n\nNot viral. Not thousands of dollars.  \n\nBut it works.  \n\nAnd that’s the point. ✅  \n\n---\n\n## 📝 What I learned\n\n- **Scratching your own itch works.** If you need it, others probably do too. ✨  \n- **You don’t need a “startup.”** A weekend hack and a Gumroad link are enough. 🛒  \n- **Small bets compound.** Each one makes you better, faster, bolder. 📈  \n\n---\n\n## 🌱 The bigger picture\n\nIndie hacking isn’t about unicorns. 🦄  \n\nIt’s about momentum. 🌀  \n\nIt’s about stacking small wins, one tool at a time. 🧩",
+    "url": "/essays/catch-upwork-jobs-faster"
   }
 ]

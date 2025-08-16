@@ -1,17 +1,17 @@
 [
   {
-    "title": "Ship It: First Indie Project",
-    "slug": "first-project",
-    "date": "2025-08-10T00:00:00.000Z",
-    "updated": "2025-08-15T00:00:00.000Z",
+    "title": "🚀 Ship It: First Indie Project",
+    "slug": "upwork-job-alerts",
+    "date": "2025-08-16T00:00:00.000Z",
+    "updated": "2025-08-16T00:00:00.000Z",
     "summary": "How I built and shipped my first indie project in a weekend.",
     "tags": [
       "indie",
       "build-in-public"
     ],
-    "headerImage": "/images/placeholder.svg",
+    "headerImage": "/images/upworkjobalerts.jpg",
     "published": true,
-    "content": "Welcome to my first project write-up.\n\n```ts\nexport function hello(name: string){\n  return `hello ${name}`\n}\n```\n\n- scoped features\n- pricing thoughts\n\n> Shipping beats perfection.",
-    "url": "/projects/first-project"
+    "content": "# 🔔 Upwork Alerts Chrome Extension  \n\n---\n\n## 📝 Overview  \nA simple Chrome extension that helps freelancers respond to Upwork jobs faster by sending desktop notifications every few minutes.  \n\nBuilt in a weekend. Shipped fast. 🚢  \n\n---\n\n## ⚡ The problem  \nOn Upwork, being among the first to apply greatly increases your chances of landing a contract.  \n\nI was constantly missing opportunities because I saw jobs too late. 🕐  \n\n---\n\n## 🛠️ The solution  \nI built a Chrome extension that pings me with notifications whenever new jobs appear.  \n\nNow I can be one of the first to apply without refreshing the site all day. 🔄  \n\nSimple. Effective.  \n\n---\n\n## 🎯 The launch  \nI listed the tool on Gumroad as a **$5 lifetime deal**. 💵  \n\nNo fancy launch. No ads. Just a small experiment to see if other freelancers feel the same pain.  \n\n👉 [Get the extension on Gumroad →](https://sunwooy.gumroad.com/l/upworkalerts)  \n\n---\n\n## 📚 Learnings  \n- **Scratch your own itch.** If it works for you, it’ll likely work for others. ✨  \n- **Ship small and fast.** A weekend hack > waiting forever for a “big idea.” ⏳  \n- **Micro-products matter.** Each one builds momentum and opens doors. 🚪  \n\n---\n\n## 🌱 The bigger picture  \nThis isn’t about building the next unicorn. 🦄  \n\nIt’s about building, shipping, and stacking small wins.  \n\nOne project at a time. 🧩",
+    "url": "/projects/upwork-job-alerts"
   }
 ]
