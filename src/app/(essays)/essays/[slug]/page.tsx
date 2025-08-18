@@ -21,12 +21,35 @@ export default async function EssayDetail({ params }: { params: Promise<{ slug: 
   const { slug } = await params
   const post = getWithContent('essays', slug)
   if (!post) return notFound()
-  const mdx = await compileMDX<unknown>(
-    {
-      source: post.content,
-      options: { mdxOptions: { rehypePlugins: [[rehypePrettyCode, { theme: 'github-dark' }]] } },
-    }
-  )
+  const mdx = await compileMDX<unknown>({
+    source: post.content,
+    components: {
+      img: (props: any) => {
+        const { alt = '', src, width, height } = props || {}
+        if (!src) return null
+        const w = width ? Number(width) : undefined
+        const h = height ? Number(height) : undefined
+        if (w && h) {
+          return (
+            <Image
+              src={src}
+              alt={alt}
+              width={w}
+              height={h}
+              sizes="100vw"
+              style={{ height: 'auto' }}
+            />
+          )
+        }
+        return (
+          <span style={{ position: 'relative', display: 'block', width: '100%', aspectRatio: '16 / 9' }}>
+            <Image src={src} alt={alt} fill sizes="100vw" style={{ objectFit: 'contain' }} />
+          </span>
+        )
+      },
+    },
+    options: { mdxOptions: { rehypePlugins: [[rehypePrettyCode, { theme: 'github-dark' }]] } },
+  })
   const { prev, next } = getPrevNext('essays', post.slug)
   return (
     <div style={{ maxWidth: 860, margin: '24px auto', padding: '0 16px', display: 'grid', gap: 24 }}>
