@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Prose from '@/components/Prose'
 import NewsletterCTA from '@/components/NewsletterCTA'
 import TagList from '@/components/TagList'
+import { mdxComponents } from '@/components/mdx'
 import { getWithContent, getPrevNext } from '@/lib/content'
 import { postMetadata } from '@/lib/seo'
 import { compileMDX } from 'next-mdx-remote/rsc'
@@ -23,31 +24,7 @@ export default async function EssayDetail({ params }: { params: Promise<{ slug: 
   if (!post) return notFound()
   const mdx = await compileMDX<unknown>({
     source: post.content,
-    components: {
-      img: (props: any) => {
-        const { alt = '', src, width, height } = props || {}
-        if (!src) return null
-        const w = width ? Number(width) : undefined
-        const h = height ? Number(height) : undefined
-        if (w && h) {
-          return (
-            <Image
-              src={src}
-              alt={alt}
-              width={w}
-              height={h}
-              sizes="100vw"
-              style={{ height: 'auto' }}
-            />
-          )
-        }
-        return (
-          <span style={{ position: 'relative', display: 'block', width: '100%', aspectRatio: '16 / 9' }}>
-            <Image src={src} alt={alt} fill sizes="100vw" style={{ objectFit: 'contain' }} />
-          </span>
-        )
-      },
-    },
+    components: mdxComponents,
     options: { mdxOptions: { rehypePlugins: [[rehypePrettyCode, { theme: 'github-dark' }]] } },
   })
   const { prev, next } = getPrevNext('essays', post.slug)

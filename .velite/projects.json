@@ -1,5 +1,19 @@
 [
   {
+    "title": "Vertical DJI to Instagram Converter",
+    "slug": "osmo-to-instagram",
+    "date": "2025-08-17T00:00:00.000Z",
+    "updated": "2025-08-17T00:00:00.000Z",
+    "summary": "Upload your DJI Osmo Pocket 3 videos to Instagram in seconds",
+    "tags": [
+      "project"
+    ],
+    "headerImage": "/images/osmo-to-insta.png",
+    "published": true,
+    "content": "# 📱 Upload your DJI Osmo Pocket 3 videos to Instagram in seconds  \r\n\r\n**Stop re-encoding. Start sharing.** ✨  \r\n\r\n---\r\n\r\n👉 **Solopreneur update**  \r\n- 🚀 Shipped a tiny tool this week  \r\n- 🛠️ Built with **Rails + Next.js**  \r\n- 🎥 Fixes a pain I’ve had for months  \r\n\r\n---\r\n\r\n## 😩 The problem  \r\n\r\nIf you’ve ever filmed a vertical video with the **DJI Osmo Pocket 3**, you know the pain:  \r\n- ❌ Instagram doesn’t recognize it as a Reel or Story  \r\n- ⌛ You have to re-encode with some weird FFmpeg command or converter\r\n- 😤 Or worse—you upload, and Instagram crops or rejects it  \r\n\r\nThat friction kills the magic. You’re ready to post *now*, not spend 30 minutes fixing file formats.  \r\n\r\n---\r\n\r\n## 🪄 The tiny fix  \r\n\r\nSo I built **Osmo to Instagram**.  \r\n\r\nIt’s dead simple:  \r\n1. 📤 Upload your Osmo video  \r\n2. ⏳ Wait a few seconds  \r\n3. 📥 Download a file Instagram *immediately* recognizes as a native Reel or Story  \r\n\r\nNo settings. No tech jargon. Just shoot → upload → post.  \r\n\r\n---\r\n\r\n## 💡 Why this matters  \r\n\r\nEvery time there’s friction in creating content, most people stop.  \r\n\r\nCreators don’t need *more* tools. They need tools that *disappear*.  \r\nThat’s the spirit behind this project: remove the technical barrier so you can focus on sharing your story.  \r\n\r\n---\r\n\r\n## ⚙️ How I built it  \r\n\r\n- 🐙 **Rails**: backend API + file processing\r\n- ⚡ **Next.js**: clean upload UI, instant feedback\r\n- 🎬 **FFmpeg**: does the heavy lifting (hidden from the user)\r\n\r\nIt’s rough but working. The important thing is: **it ships**. 🚢\r\n\r\n---\r\n\r\n## 🔮 What’s next\r\n\r\n- 🖱️ Drag-and-drop batch uploads\r\n- 📲 One-click “send to phone” link\r\n- 🎙️ Maybe even auto-captions for Reels\r\n\r\nIf you use the DJI Osmo Pocket 3 and struggle with Instagram uploads, I’d love for you to try it.\r\n\r\n👉 [**Osmo to Instagram — Try it here**](https://www.osmotoinsta.sunwoolabs.com)",
+    "url": "/projects/osmo-to-instagram"
+  },
+  {
     "title": "🚀 Ship It: First Indie Project",
     "slug": "upwork-job-alerts",
     "date": "2025-08-16T00:00:00.000Z",
