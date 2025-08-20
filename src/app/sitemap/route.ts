@@ -9,6 +9,7 @@ export async function GET() {
   urls.push(site)
   urls.push(toAbsoluteUrl('/projects', site))
   urls.push(toAbsoluteUrl('/essays', site))
+  urls.push(toAbsoluteUrl('/privacy-policy', site))
   getAllTags().forEach(t => urls.push(toAbsoluteUrl(`/tags/${encodeURIComponent(t)}`, site)))
   getAllPostsFull().forEach(p => urls.push(toAbsoluteUrl(p.url, site)))
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
