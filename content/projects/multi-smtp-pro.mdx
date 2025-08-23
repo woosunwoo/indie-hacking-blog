@@ -1,0 +1,63 @@
+---
+title: "💌 Multi SMTP Plus: Unlimited Emails, $0 Spent"
+slug: "multi-smtp-plus"
+date: 2025-08-23
+updated: 2025-08-23
+summary: "Revived an 11-year-old Rails multi-SMTP gem and added round-robin delivery to spread load across free tiers."
+tags: ["rails", "ruby", "email", "build-in-public"]
+headerImage: "/images/multi-smtp-plus.png"
+published: true
+---
+
+# 💌 Unlimited Emails, $0 Spent  
+
+**How I revived an 11-year-old Rails gem and gave it a new superpower.**  
+
+---
+
+👉 **Solopreneur update**  
+- 🔧 Updated an **11-year-old multi-SMTP gem** to work with modern Rails  
+- 🔄 Added a new **round robin mode** to distribute load evenly  
+- 💸 Result: Unlimited emails, zero dollars spent  
+
+---
+
+## 🪦 Old but not dead  
+
+I found an old gem called `multi_smtp`. Last update? **2014.**  
+
+It worked… kinda. But only on old Rails versions. And it lacked something I really needed: a way to spread email load across multiple providers.  
+
+Why? Because free tiers exist. And if you rotate them properly, you can send **a lot** of emails without ever pulling out your credit card.  
+
+---
+
+## 🧙 The GPT-5 hack  
+
+I’ll be honest: I didn’t want to read 11 years of outdated Ruby code.  
+
+So I asked GPT-5 to help me upgrade it.  
+
+- Updated it for Rails 8 (works cleanly now)  
+- Added **round robin delivery**: Active loop through every provider you configure, distributing the load evenly  
+
+Now you can stack Gmail, Resend, SendGrid, Mailgun—whatever free tiers you have. Emails spread out, limits avoided.  
+
+Unlimited emails. $0 spent. 💸📧🤖  
+
+---
+
+## ⚙️ How it works  
+
+1. List your SMTP providers
+2. Choose **round_robin** as the delivery mode
+3. Every email cycles to the next provider automatically
+
+---
+
+## 📦 Try it
+
+Code’s here: github.com/woosunwoo/multi_smtp
+
+Works out of the box with Rails 8.
+Perfect for side projects, newsletters, or anyone tired of paying just to send “Welcome” emails.
